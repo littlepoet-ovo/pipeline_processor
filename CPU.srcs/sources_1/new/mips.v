@@ -31,6 +31,7 @@ module mips( clk, rst);
    wire [4:0]  imm5,imm5_EX;
    wire [4:0]  rs,rt,rd;
    wire [31:0] Din_WB;//送入RF数据端口的值
+   wire rezero_EX;
    
    
    //使用流水线后增加的连线
@@ -43,14 +44,14 @@ module mips( clk, rst);
    
    //ID/EX
    wire [31:0] Jump_addr_ID,Branch_addr_ID;
-   wire Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID,RegWr_ID,RegDst_ID;
+   wire Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID,RegWr_ID,RegDst_ID,rezero_ID;
    wire [1:0] ExtOp_ID;
-   wire [2:0]ALUctr_ID;
+   wire [3:0]ALUctr_ID;
    wire [31:0] R1_ID,R2_ID,Ext_imm32_ID;
    wire [4:0] Rw_ID;
    wire [31:0] Jump_addr_EX,Branch_addr_EX;
    wire Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX;
-   wire [2:0] ALUctr_EX;
+   wire [3:0] ALUctr_EX;
    wire [5:0] ALUctr_True;
    wire [31:0] R1_EX,R2_EX,Ext_imm32_EX;
    wire [4:0] Rw_EX;
@@ -97,7 +98,7 @@ module mips( clk, rst);
    ctrl_top U_CTRL (op,func,
        Jump_ID, MemtoReg_ID,
        Beq_ID, MemWr_ID, ALUctr_ID,
-       ALUsrc_ID, RegWr_ID, ExtOp_ID, RegDst_ID
+       ALUsrc_ID, RegWr_ID, ExtOp_ID, RegDst_ID, rezero_ID
    );  
    //控制器可能还需要增加一些信号，以后再说
    
@@ -115,14 +116,14 @@ module mips( clk, rst);
   
   //流水段ID_EX
   ID_EX U_ID_EX(clk,rst,clear,
-               Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID, 
+               Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID,ALUsrc_ID,
                RegWr_ID,ALUctr_ID,
                R1_ID,R2_ID,Rw_ID,
-               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,//id输入
+               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,//id输入
                Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX, ALUsrc_EX,
                RegWr_EX,ALUctr_EX,
                R1_EX,R2_EX,Rw_EX,
-               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX    //ex输出
+               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX    //ex输出
                );
      
    mux2 #(32) U_MUX2_ALUsrc (R2_EX,Ext_imm32_EX, ALUsrc_EX, ALU_B);//设计图中多路选择器好像画反了
@@ -130,7 +131,7 @@ module mips( clk, rst);
     ALUControl alucontrol(ALUctr_EX,func_EX,ALUctr_True);
     //ALU(A,B,ALUctrl,shamt,Result,ZF);
    ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX, Zero);//ALU
-   
+   assign Zero = rezero_EX?~Zero:Zero;
    assign Branch=Zero & Beq_EX;
    assign clear=Branch || Jump_EX;
    //一审上述没问题
