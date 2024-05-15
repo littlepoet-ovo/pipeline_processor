@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="200000001fs"></ZoomEndTime>
-      <Cursor1Time time="125000000fs"></Cursor1Time>
+      <ZoomStartTime time="32323231fs"></ZoomStartTime>
+      <ZoomEndTime time="233535354fs"></ZoomEndTime>
+      <Cursor1Time time="200000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="228"></NameColumnWidth>
-      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+      <ValueColumnWidth column_width="83"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="9" />
    <wvobject fp_name="/mips_tb/clk" type="logic">

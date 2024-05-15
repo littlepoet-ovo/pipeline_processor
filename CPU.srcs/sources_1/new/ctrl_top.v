@@ -33,9 +33,9 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
     output reg Jump;
     output reg [1:0] Extop;
     output reg rezero;//为1则对zero信号进行反转，实现beq功能！
-     reg RaDst;
-     reg JrDst;
-     reg ExDst;
+     reg RaDst;//jal选择存储PC+4
+     reg JrDst;//1代表执行Jr
+     reg ExDst;//完成lui讲ext的值直接引回
     always @(*)begin
         case(op)
             6'b000000: begin //R指令
