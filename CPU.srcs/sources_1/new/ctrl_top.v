@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 //op,func,ALUOp,RegDst,ALUsrc,MemtoReg,MemWrite,RegWrite,Branch,Jump,Extop,rezero,RaDst,JrDst,SfDst,ExDst
-//未使用：RaDst,JrDst,SfDst,ExDst
+//未使用：RaDst,JrDst,ExDst
 module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Extop,RegDst,rezero);
     input [5:0] op;
     input [5:0] func;
@@ -35,12 +35,11 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
     output reg rezero;//为1则对zero信号进行反转，实现beq功能！
      reg RaDst;
      reg JrDst;
-     reg SfDst;
      reg ExDst;
     always @(*)begin
         case(op)
             6'b000000: begin //R指令
-                if(func!=6'b001000&&func!=6'b101010&&func!=6'b101011) begin
+                if(func!=6'b001000) begin
                     ALUOp <= 4'b0000;
                     RegDst <= 1'b1;
                     ALUsrc <= 1'b0;
@@ -52,7 +51,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                     Extop <= 2'bxx;
                     RaDst <= 1'b0;
                     JrDst <= 1'b0;
-                    SfDst <= 1'b1;
                     ExDst <= 1'b0;
                 end 
                 else if(func==6'b001000) begin//jr
@@ -67,37 +65,7 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                     Extop <= 2'bxx;
                     RaDst <= 1'b0;
                     JrDst <= 1'b1;
-                    SfDst <= 1'b1;
                     ExDst <= 2'b00;
-                end
-                else if(func==6'b101010) begin//slt
-                    ALUOp <= 4'b0010;
-                    RegDst <= 1'b1;
-                    ALUsrc <= 1'b0;
-                    MemtoReg <= 1'b0;
-                    MemWrite <= 1'b0;
-                    RegWrite <= 1'b1;
-                    Branch <= 1'b0;
-                    Jump <= 1'b0;
-                    Extop <= 2'bxx;                                                                                 
-                    RaDst <= 1'b0;
-                    JrDst <= 1'b0;
-                    SfDst<=1'b0;
-                    ExDst <= 1'b0;
-                end else if(func==6'b101011) begin//sltu
-                    ALUOp <= 4'b0111;
-                    RegDst <= 1'b1;
-                    ALUsrc <= 1'b0;
-                    MemtoReg <= 1'b0;
-                    MemWrite <= 1'b0;
-                    RegWrite <= 1'b1;
-                    Branch <= 1'b0;
-                    Jump <= 1'b0;
-                    Extop <= 2'bxx;
-                    RaDst <= 1'b0;
-                    JrDst <= 1'b0;
-                    SfDst<=1'b0;
-                    ExDst <= 1'b0;
                 end
             end
             6'b001000:begin// addi
@@ -112,7 +80,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b01;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b100011:begin// lw
@@ -127,7 +94,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b01;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b101011:begin// sw
@@ -142,7 +108,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b01;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b000100:begin// beq
@@ -158,7 +123,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 rezero <= 0;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b000010:begin// j
@@ -173,7 +137,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'bxx;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b000101:begin // bne
@@ -189,7 +152,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 rezero <= 1;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b001110:begin// xori
@@ -204,7 +166,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b00;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
              6'b001101:begin// ori
@@ -219,7 +180,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b00;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b001001:begin// addiu
@@ -234,7 +194,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b01;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b000011:begin//jal
@@ -249,11 +208,10 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'bxx;
                 RaDst <= 1'b1;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
             6'b001010:begin//slti
-                ALUOp <= 4'b0010;
+                ALUOp <= 4'b1000;
                 RegDst <= 1'b0;
                 ALUsrc <= 1'b1;
                 MemtoReg <= 1'b0;
@@ -264,7 +222,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b01;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b0;
                 ExDst <= 1'b0;
             end
             6'b001111:begin//lui
@@ -279,7 +236,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b10;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b1;
             end
             6'b001100:begin//andi
@@ -294,11 +250,10 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 1'b0;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b1;
                 ExDst <= 1'b0;
             end
              6'b001011:begin//sltiu
-                ALUOp <= 4'b0010;
+                ALUOp <= 4'b1001;
                 RegDst <= 1'b0;
                 ALUsrc <= 1'b1;
                 MemtoReg <= 1'b0;
@@ -309,7 +264,6 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 Extop <= 2'b00;
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
-                SfDst <= 1'b0;
                 ExDst <= 1'b0;
             end                   
         endcase
