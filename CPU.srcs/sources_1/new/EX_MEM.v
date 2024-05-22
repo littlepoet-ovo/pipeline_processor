@@ -20,15 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module EX_MEM(clk,rst,
-              MemtoReg_EX,MemWr_EX,RegWr_EX,result_EX, Db_EX,Rw_EX,
-              MemtoReg_MEM,MemWr_MEM,RegWr_MEM,result_MEM,Db_MEM,Rw_MEM
+              MemtoReg_EX,MemWr_EX,RegWr_EX,result_EX, Db_EX,Rw_EX,RaDst_EX,PCplus1_EX,
+              MemtoReg_MEM,MemWr_MEM,RegWr_MEM,result_MEM,Db_MEM,Rw_MEM,RaDst_MEM,PCplus1_MEM
     );
     input clk,rst;
-    input MemtoReg_EX,MemWr_EX,RegWr_EX;
-    input[31:0] result_EX,Db_EX;
+    input MemtoReg_EX,MemWr_EX,RegWr_EX,RaDst_EX;
+    input[31:0] result_EX,Db_EX,PCplus1_EX;
     input [4:0] Rw_EX;
-    output reg MemtoReg_MEM,MemWr_MEM,RegWr_MEM;
-    output reg[31:0] result_MEM,Db_MEM;
+    output reg MemtoReg_MEM,MemWr_MEM,RegWr_MEM,RaDst_MEM;
+    output reg[31:0] result_MEM,Db_MEM,PCplus1_MEM;
     output reg [4:0] Rw_MEM;
     always @(posedge clk or rst)
            begin
@@ -40,6 +40,8 @@ module EX_MEM(clk,rst,
                       result_MEM<=0;
                       Db_MEM<=0;
                       Rw_MEM<=0; 
+                      RaDst_MEM<=0;
+                      PCplus1_MEM<=0;
                   end 
                else
                   begin             
@@ -48,7 +50,9 @@ module EX_MEM(clk,rst,
                       RegWr_MEM<=RegWr_EX;
                       result_MEM<=result_EX;
                       Db_MEM<=Db_EX;
-                      Rw_MEM<=Rw_EX;           
+                      Rw_MEM<=Rw_EX;     
+                      RaDst_MEM<=RaDst_EX;
+                      PCplus1_MEM<=PCplus1_EX;    
                   end
            end      
 endmodule

@@ -19,8 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 //op,func,ALUOp,RegDst,ALUsrc,MemtoReg,MemWrite,RegWrite,Branch,Jump,Extop,rezero,RaDst,JrDst,SfDst,ExDst
-//未使用：RaDst,JrDst,ExDst
-module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Extop,RegDst,rezero);
+//未使用：JrDst,ExDst
+module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Extop,RegDst,rezero,RaDst,JrDst);
     input [5:0] op;
     input [5:0] func;
     output reg [3:0] ALUOp;
@@ -33,8 +33,8 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
     output reg Jump;
     output reg [1:0] Extop;
     output reg rezero;//为1则对zero信号进行反转，实现beq功能！
-     reg RaDst;//jal选择存储PC+4
-     reg JrDst;//1代表执行Jr
+    output reg RaDst;//jal选择存储PC+4
+    output reg JrDst;//1代表执行Jr
      reg ExDst;//完成lui讲ext的值直接引回
     always @(*)begin
         case(op)
