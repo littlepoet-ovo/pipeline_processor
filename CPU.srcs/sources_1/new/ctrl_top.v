@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 //op,func,ALUOp,RegDst,ALUsrc,MemtoReg,MemWrite,RegWrite,Branch,Jump,Extop,rezero,RaDst,JrDst,SfDst,ExDst
 //未使用：JrDst,ExDst
-module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Extop,RegDst,rezero,RaDst,JrDst);
+module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Extop,RegDst,rezero,RaDst,JrDst,ExDst);
     input [5:0] op;
     input [5:0] func;
     output reg [3:0] ALUOp;
@@ -35,7 +35,7 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
     output reg rezero;//为1则对zero信号进行反转，实现beq功能！
     output reg RaDst;//jal选择存储PC+4
     output reg JrDst;//1代表执行Jr
-     reg ExDst;//完成lui讲ext的值直接引回
+    output reg ExDst;//完成lui讲ext的值直接引回
     always @(*)begin
         case(op)
             6'b000000: begin //R指令
@@ -228,7 +228,7 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 ALUOp <= 4'bxxxx;
                 RegDst <= 1'b0;
                 ALUsrc <= 1'bx;
-                MemtoReg <= 1'bx;
+                MemtoReg <= 1'b0;
                 MemWrite <= 1'b0;
                 RegWrite <= 1'b1;
                 Branch <= 1'b0;

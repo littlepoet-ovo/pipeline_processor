@@ -24,15 +24,15 @@ module ID_EX(clk,rst,clear,
              Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID,
              RegWr_ID,ALUctr_ID,
              Da_ID,Db_ID,Rw_ID,
-             Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,//id输入
+             Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,//id输入
              Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX, ALUsrc_EX,
              RegWr_EX,ALUctr_EX,
              Da_EX,Db_EX,Rw_EX,
-             Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX    //ex输出
+             Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX    //ex输出
     );
     input clk,rst,clear;
     input [31:0] Jump_addr_ID,Branch_addr_ID;
-    input Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID, RegWr_ID,rezero_ID,RaDst_ID,JrDst_ID;
+    input Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID, RegWr_ID,rezero_ID,RaDst_ID,JrDst_ID,ExDst_ID;
     input [3:0]ALUctr_ID;
     input [31:0] Da_ID,Db_ID,Ext_imm32_ID;
     input [4:0] Rw_ID;
@@ -40,7 +40,7 @@ module ID_EX(clk,rst,clear,
     input [4:0]  imm5;
     input wire [31:0] PCplus1_ID;
     output reg [31:0] Jump_addr_EX,Branch_addr_EX;
-    output reg Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX,rezero_EX,RaDst_EX,JrDst_EX;
+    output reg Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX,rezero_EX,RaDst_EX,JrDst_EX,ExDst_EX;
     output reg [3:0] ALUctr_EX;
     output reg [31:0] Da_EX,Db_EX,Ext_imm32_EX;
     output reg [4:0] Rw_EX;
@@ -70,6 +70,7 @@ module ID_EX(clk,rst,clear,
                   RaDst_EX<=0;
                   PCplus1_EX<=0;
                   JrDst_EX<=0;
+                  ExDst_EX<=0;
               end 
            else
               begin
@@ -92,6 +93,7 @@ module ID_EX(clk,rst,clear,
                   RaDst_EX<=RaDst_ID;  
                   PCplus1_EX<=PCplus1_ID;  
                   JrDst_EX<=JrDst_ID;
+                  ExDst_EX<=ExDst_ID;
               end
        end   
 endmodule

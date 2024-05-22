@@ -44,13 +44,13 @@ module mips( clk, rst);
    
    //ID/EX
    wire [31:0] Jump_addr_ID,Branch_addr_ID;
-   wire Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID,RegWr_ID,RegDst_ID,rezero_ID,RaDst_ID,JrDst_ID;
+   wire Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID, ALUsrc_ID,RegWr_ID,RegDst_ID,rezero_ID,RaDst_ID,JrDst_ID,ExDst_ID;
    wire [1:0] ExtOp_ID;
    wire [3:0]ALUctr_ID;
    wire [31:0] R1_ID,R2_ID,Ext_imm32_ID;
    wire [4:0] Rw_ID;
    wire [31:0] Jump_addr_EX,Branch_addr_EX;
-   wire Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX,JrDst_EX;
+   wire Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX,JrDst_EX,ExDst_EX;
    wire [3:0] ALUctr_EX;
    wire [5:0] ALUctr_True;
    wire [31:0] R1_EX,R2_EX,Ext_imm32_EX;
@@ -61,7 +61,7 @@ module mips( clk, rst);
    //EX/MEM
    wire [31:0] ALU_B;
    wire	  Branch,Zero,RaDst_MEM;
-   wire[31:0] result_EX;
+   wire[31:0] result_EX_t,result_EX;
    wire  MemtoReg_MEM,MemWr_MEM,RegWr_MEM;
    wire[31:0] result_MEM,R2_MEM;
    wire [4:0] Rw_MEM;
@@ -100,7 +100,7 @@ module mips( clk, rst);
    ctrl_top U_CTRL (op,func,
        Jump_ID, MemtoReg_ID,
        Beq_ID, MemWr_ID, ALUctr_ID,
-       ALUsrc_ID, RegWr_ID, ExtOp_ID, RegDst_ID, rezero_ID, RaDst_ID,JrDst_ID
+       ALUsrc_ID, RegWr_ID, ExtOp_ID, RegDst_ID, rezero_ID, RaDst_ID,JrDst_ID,ExDst_ID
    );  
    //控制器可能还需要增加一些信号，以后再说
    
@@ -121,18 +121,18 @@ module mips( clk, rst);
                Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID,ALUsrc_ID,
                RegWr_ID,ALUctr_ID,
                R1_ID,R2_ID,Rw_ID,
-               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,//id输入
+               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,//id输入
                Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX, ALUsrc_EX,
                RegWr_EX,ALUctr_EX,
                R1_EX,R2_EX,Rw_EX,
-               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX    //ex输出
+               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX    //ex输出
                );
      
    mux2 #(32) U_MUX2_ALUsrc (R2_EX,Ext_imm32_EX, ALUsrc_EX, ALU_B);//设计图中多路选择器好像画反了
-   
     ALUControl alucontrol(ALUctr_EX,func_EX,ALUctr_True);
     //ALU(A,B,ALUctrl,shamt,Result,ZF);
-   ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX, Zero);//ALU
+   ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX_t, Zero);//ALU
+   mux2 #(32) U_MUX2_ExDst(result_EX_t,Ext_imm32_EX,ExDst_EX,result_EX);
    assign Zero = rezero_EX?~Zero:Zero;
    assign Branch=Zero & Beq_EX;
    assign clear=Branch || Jump_EX;
