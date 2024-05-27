@@ -265,7 +265,21 @@ module ctrl_top(op,func,Jump,MemtoReg,Branch,MemWrite,ALUOp,ALUsrc,RegWrite,Exto
                 RaDst <= 1'b0;
                 JrDst <= 1'b0;
                 ExDst <= 1'b0;
-            end                   
+            end  
+            default:begin
+                ALUOp <= 4'b0000;
+                RegDst <= 1'b0;
+                ALUsrc <= 1'b0;
+                MemtoReg <= 1'b0;
+                MemWrite <= 1'b0;
+                RegWrite <= 1'b0;
+                Branch <= 1'b0;
+                Jump <= 1'b0;
+                Extop <= 2'b00;
+                RaDst <= 1'b0;
+                JrDst <= 1'b0;
+                ExDst <= 1'b0;
+            end                 
         endcase
     end
 endmodule

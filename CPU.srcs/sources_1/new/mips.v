@@ -48,7 +48,7 @@ module mips( clk, rst);
    wire [1:0] ExtOp_ID;
    wire [3:0]ALUctr_ID;
    wire [31:0] R1_ID,R2_ID,Ext_imm32_ID;
-   wire [4:0] Rw_ID;
+   wire [4:0] Rw_ID,Rw_ID_t;
    wire [31:0] Jump_addr_EX,Branch_addr_EX;
    wire Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX,RegWr_EX,ALUsrc_EX,JrDst_EX,ExDst_EX;
    wire [3:0] ALUctr_EX;
@@ -70,7 +70,7 @@ module mips( clk, rst);
    wire[31:0] dm_dout_MEM;
    wire MemtoReg_WB,MemWr_WB,RegWr_WB,RaDst_WB;
    wire[31:0] result_WB,dm_dout_WB,PCplus1_WB;
-   wire [4:0] Rw_WB_t,Rw_WB;
+   wire [4:0] Rw_WB;
 
    mux2 #(32) U_Branch (PCplus1_IF, Branch_addr_EX, Branch, Branch_addr);
    mux2 #(32) U_Jump (Branch_addr,Jump_addr_EX,Jump_EX,NPC_t);
@@ -104,8 +104,8 @@ module mips( clk, rst);
    );  
    //控制器可能还需要增加一些信号，以后再说
    
-   mux2 #(5) U_MUX2_RegDst (rt, rd, RegDst_ID, Rw_ID);//目的寄存器选择 RegDst=0选rt,=1选rd,
-  
+   mux2 #(5) U_MUX2_RegDst (rt, rd, RegDst_ID, Rw_ID_t);//目的寄存器选择 RegDst=0选rt,=1选rd,
+   mux2 #(5) U_MUX2_RaDst(Rw_ID_t,5'b11111,RaDst_ID,Rw_ID);
    RF U_RF (rs, rt, Rw_WB, Din_WB, clk,RegWr_WB, R1_ID,R2_ID); 
             
    EXT U_EXT (imm16, ExtOp_ID, Ext_imm32_ID);//立即数带符号或无符号扩展
@@ -150,12 +150,11 @@ module mips( clk, rst);
     //流水段MEM_WB
    MEM_WB U_MEM_WB(clk,rst,
                  MemtoReg_MEM,RegWr_MEM,result_MEM,dm_dout_MEM,Rw_MEM,RaDst_MEM,PCplus1_MEM,
-                 MemtoReg_WB,RegWr_WB,result_WB,dm_dout_WB,Rw_WB_t,RaDst_WB,PCplus1_WB);
+                 MemtoReg_WB,RegWr_WB,result_WB,dm_dout_WB,Rw_WB,RaDst_WB,PCplus1_WB);
    
     
    mux2 #(32) U_MUX2_MemtoReg (result_WB, dm_dout_WB, MemtoReg_WB,Din_WB_t);//回写数据选择:来自数据存储器或ALU_result或PC+4
    mux2 #(32) U_MUX2_RaDst_Data(Din_WB_t,PCplus1_WB,RaDst_WB,Din_WB);
-   mux2 #(32) U_MUX2_RaDst_Address(Rw_WB_t,5'b11111,RaDst_WB,Rw_WB);
    
 endmodule
 
