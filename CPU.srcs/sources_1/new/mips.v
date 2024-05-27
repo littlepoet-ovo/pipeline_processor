@@ -36,7 +36,7 @@ module mips( clk, rst);
    
    //使用流水线后增加的连线
    wire [31:0] Branch_addr;
-   wire clear;//beq指令满足跳转条件或j指令时需要清空IF_ID和ID_EX两个流水段寄存器
+   wire Jump_stall,stall,clear;//beq指令满足跳转条件或j指令时需要清空IF_ID和ID_EX两个流水段寄存器
    //IF/ID
    wire [3:0] PC31_28_IF,PC31_28_ID;
    wire [31:0] PCplus1_IF,PCplus1_ID;
@@ -60,7 +60,7 @@ module mips( clk, rst);
    
    //EX/MEM
    wire [31:0] ALU_B;
-   wire	  Branch,Zero,RaDst_MEM;
+   wire	  Branch,Zero,RaDst_MEM,Zero_t;
    wire[31:0] result_EX_t,result_EX;
    wire  MemtoReg_MEM,MemWr_MEM,RegWr_MEM;
    wire[31:0] result_MEM,R2_MEM;
@@ -75,7 +75,7 @@ module mips( clk, rst);
    mux2 #(32) U_Branch (PCplus1_IF, Branch_addr_EX, Branch, Branch_addr);
    mux2 #(32) U_Jump (Branch_addr,Jump_addr_EX,Jump_EX,NPC_t);
    mux2 #(32) U_Jr(NPC_t,R1_EX,JrDst_EX,NPC);
-   PC U_PC (clk, rst, NPC, PC);
+   PC U_PC (clk, rst,stall, NPC, PC);
    
    assign PCplus1_IF=PC+4;
    
@@ -84,7 +84,7 @@ module mips( clk, rst);
    assign PC31_28_IF=PC[29:26];
    
    //流水段IF_ID
-   IF_ID U_IF_ID(clk,rst,clear,PC31_28_IF,im_dout_IF,PCplus1_IF,
+   IF_ID U_IF_ID(clk,rst,stall,Jump_stall,PC31_28_IF,im_dout_IF,PCplus1_IF,
                 PC31_28_ID,PCplus1_ID,im_dout_ID);
    
    assign op = im_dout_ID[31:26];
@@ -114,7 +114,7 @@ module mips( clk, rst);
   assign sign29={{14{imm16[15]}},imm16};
   assign Branch_addr_ID={PCplus1_ID[31:2]+sign29,2'b00};//生成30位branch跳转地址
   assign Jump_addr_ID={{PC31_28_ID,imm26},2'b00};//生成30位jump跳转地址
-  
+  assign clear = Jump_stall | stall;
   
   //流水段ID_EX
   ID_EX U_ID_EX(clk,rst,clear,
@@ -131,12 +131,13 @@ module mips( clk, rst);
    mux2 #(32) U_MUX2_ALUsrc (R2_EX,Ext_imm32_EX, ALUsrc_EX, ALU_B);//设计图中多路选择器好像画反了
     ALUControl alucontrol(ALUctr_EX,func_EX,ALUctr_True);
     //ALU(A,B,ALUctrl,shamt,Result,ZF);
-   ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX_t, Zero);//ALU
+   ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX_t, Zero_t);//ALU
    mux2 #(32) U_MUX2_ExDst(result_EX_t,Ext_imm32_EX,ExDst_EX,result_EX);
-   assign Zero = rezero_EX?~Zero:Zero;
+   assign Zero = rezero_EX?~Zero_t:Zero_t;
    assign Branch=Zero & Beq_EX;
-   assign clear=Branch || Jump_EX;
-   
+   assign Jump_stall=Branch || Jump_EX;
+   // op,Rw_EX,Rw_MEM,RegWr_EX,RegWr_MEM,rs,rt,stall
+   relationcheck U_relationcheck(op,Rw_EX,Rw_MEM,RegWr_EX,RegWr_MEM,rs,rt,stall);
    
    //流水段EX_MEM
    EX_MEM  U_EX_MEM(clk,rst,

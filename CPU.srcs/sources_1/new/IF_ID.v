@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module IF_ID(clk,rst,clear,PC31_28_IF,im_dout_IF,PCplus1_IF,
+module IF_ID(clk,rst,stall,jump_stall,PC31_28_IF,im_dout_IF,PCplus1_IF,
              PC31_28_ID,PCplus1_ID,im_dout_ID);
-   input clk,rst,clear;
+   input clk,rst,stall,jump_stall;
    input [3:0] PC31_28_IF;//指令前四
    input [31:0] im_dout_IF;//指令的值
    input [31:0] PCplus1_IF;
@@ -31,7 +31,7 @@ module IF_ID(clk,rst,clear,PC31_28_IF,im_dout_IF,PCplus1_IF,
    output reg[31:0] im_dout_ID;////指令的值
    always @(posedge clk or rst)
       begin
-         if (rst||clear)
+         if (rst||jump_stall)
              begin
                   PC31_28_ID<=0;
                   PCplus1_ID<=0;
@@ -39,9 +39,12 @@ module IF_ID(clk,rst,clear,PC31_28_IF,im_dout_IF,PCplus1_IF,
              end 
           else
              begin
-                  PC31_28_ID<=PC31_28_IF;
-                  PCplus1_ID<=PCplus1_IF;
-                  im_dout_ID<=im_dout_IF;
+                 if (stall==0)//stall=1的时候发生阻塞
+                 begin
+                      PC31_28_ID<=PC31_28_IF;
+                      PCplus1_ID<=PCplus1_IF;
+                      im_dout_ID<=im_dout_IF;
+                 end
              end
       end
 endmodule

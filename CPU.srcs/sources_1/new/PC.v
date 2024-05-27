@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module PC( clk, rst,NPC, PC );          
+module PC( clk, rst,stall, NPC, PC );          
    input clk;
-   input rst;
+   input rst,stall;
    input[31:0] NPC;
    output[31:0] PC;
    
@@ -31,7 +31,8 @@ module PC( clk, rst,NPC, PC );
       if ( rst ) 
          PC <= 32'h0000_3000;   
       else 
-         PC <= NPC;
+         if(stall==0)
+             PC <= NPC;
    end // end always         
 endmodule
 

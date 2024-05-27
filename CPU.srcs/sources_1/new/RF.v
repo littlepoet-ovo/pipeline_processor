@@ -29,7 +29,7 @@ module RF(Ra,Rb,Rw,busW,clk,RegWr,busA,busB);
    output wire [31:0] busA,busB;
     reg [31:0] rf[31:0];
 /*初始化寄存器的值，当综合时将该部分代码删除*/
-integer i;
+   integer i;
    initial begin
        for (i=0; i<32; i=i+1)
           rf[i] = 0;
@@ -37,12 +37,15 @@ integer i;
 
    always @(negedge clk) 
    begin//写逻辑
-      if (RegWr)
-         rf[Rw] <= busW;
+       if (RegWr)
+            rf[Rw] <= busW;
    end // end always
 /*以下部分为读逻辑*/
-   assign busA = (Ra == 0) ? 32'd0 : rf[Ra];
-   assign busB = (Rb == 0) ? 32'd0 : rf[Rb];
+//   always @(negedge clk)
+//   begin
+       assign busA = (Ra == 0) ? 32'd0 : rf[Ra];
+       assign busB = (Rb == 0) ? 32'd0 : rf[Rb];
+//   end
 
 endmodule 
 
