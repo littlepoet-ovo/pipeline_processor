@@ -11,11 +11,13 @@ Compiling module xil_defaultlib.mux2
 Compiling module xil_defaultlib.PC
 Compiling module xil_defaultlib.im_4k
 Compiling module xil_defaultlib.IF_ID
+Compiling module xil_defaultlib.load_use_check
 Compiling module xil_defaultlib.ctrl_top
 Compiling module xil_defaultlib.mux2(parameter_width=5)
 Compiling module xil_defaultlib.RF
 Compiling module xil_defaultlib.EXT
 Compiling module xil_defaultlib.ID_EX
+Compiling module xil_defaultlib.mux3
 Compiling module xil_defaultlib.ALUControl
 Compiling module xil_defaultlib.GU
 Compiling module xil_defaultlib.PU
@@ -27,8 +29,8 @@ Compiling module xil_defaultlib.PartialCarryLookAheadAdder_32
 Compiling module xil_defaultlib.Minus
 Compiling module xil_defaultlib.FixedComplementAdder32
 Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.relationcheck
 Compiling module xil_defaultlib.EX_MEM
+Compiling module xil_defaultlib.relation_check
 Compiling module xil_defaultlib.dm_4k
 Compiling module xil_defaultlib.MEM_WB
 Compiling module xil_defaultlib.mips

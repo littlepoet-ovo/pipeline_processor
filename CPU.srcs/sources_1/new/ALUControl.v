@@ -25,7 +25,7 @@ module ALUControl(ALUop,func,ALUCtr);
 	input wire [5:0] func;
 	output reg [5:0]ALUCtr;
     always @(*)begin
-        if (ALUop == 4'b000) begin
+        if (ALUop == 4'b0000) begin
             ALUCtr <= func;
         end
         else if(ALUop == 4'b0001) begin //´ø·ûºÅ¼Ó·¨

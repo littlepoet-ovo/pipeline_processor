@@ -1,0 +1,903 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May 28 00:02:22 2024
+# Process ID: 31388
+# Current directory: G:/Vivado/pipeline_processor/CPU.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: G:/Vivado/pipeline_processor/CPU.runs/synth_1/top.vds
+# Journal file: G:/Vivado/pipeline_processor/CPU.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 31948 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 372.090 ; gain = 100.234
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'SevenSegDisp' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SevenSegDisp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Select' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Select.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Select' (1#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Select.v:23]
+INFO: [Synth 8-6157] synthesizing module 'SevenSegDecoder' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SevenSegDecoder.v:23]
+INFO: [Synth 8-226] default block is never used [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SevenSegDecoder.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'SevenSegDecoder' (2#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SevenSegDecoder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Counter8' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Counter8.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Counter8' (3#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Counter8.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Decoder3_8' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Decoder3_8.v:22]
+INFO: [Synth 8-226] default block is never used [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Decoder3_8.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'Decoder3_8' (4#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Decoder3_8.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'SevenSegDisp' (5#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SevenSegDisp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'FrequencyDivider' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/FrequencyDivider.v:22]
+	Parameter N1000 bound to: 50000 - type: integer 
+	Parameter N100 bound to: 500000 - type: integer 
+	Parameter N10 bound to: 5000000 - type: integer 
+	Parameter N1 bound to: 50000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'FrequencyDivider' (6#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/FrequencyDivider.v:22]
+INFO: [Synth 8-6157] synthesizing module 'mips' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+	Parameter parameter_width bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'PC' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PC.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (8#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PC.v:23]
+INFO: [Synth 8-6157] synthesizing module 'im_4k' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:23]
+WARNING: [Synth 8-3848] Net imem[4096] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4095] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4094] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4093] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4092] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4091] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4090] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4089] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4088] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4087] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4086] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4085] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4084] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4083] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4082] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4081] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4080] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4079] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4078] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4077] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4076] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4075] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4074] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4073] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4072] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4071] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4070] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4069] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4068] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4067] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4066] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4065] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4064] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4063] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4062] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4061] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4060] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4059] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4058] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4057] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4056] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4055] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4054] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4053] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4052] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4051] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4050] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4049] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4048] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4047] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4046] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4045] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4044] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4043] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4042] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4041] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4040] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4039] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4038] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4037] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4036] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4035] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4034] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4033] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4032] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4031] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4030] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4029] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4028] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4027] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4026] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4025] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4024] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4023] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4022] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4021] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4020] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4019] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4018] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4017] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4016] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4015] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4014] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4013] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4012] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4011] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4010] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4009] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4008] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4007] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4006] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4005] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4004] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4003] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4002] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4001] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[4000] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[3999] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[3998] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+WARNING: [Synth 8-3848] Net imem[3997] in module/entity im_4k does not have driver. [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:28]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'im_4k' (9#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/im_4k.v:23]
+INFO: [Synth 8-6157] synthesizing module 'IF_ID' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/IF_ID.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'IF_ID' (10#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/IF_ID.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ctrl_top' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ctrl_top.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ctrl_top' (11#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ctrl_top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+	Parameter parameter_width bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (11#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RF' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/RF.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'RF' (12#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/RF.v:24]
+INFO: [Synth 8-6157] synthesizing module 'EXT' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/EXT.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'EXT' (13#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/EXT.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ID_EX' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ID_EX.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ID_EX' (14#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ID_EX.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ALUControl' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALUControl.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ALUControl' (15#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALUControl.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'FixedComplementAdder32' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/FixedComplementAdder32.v:23]
+INFO: [Synth 8-6157] synthesizing module 'PartialCarryLookAheadAdder_32' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PartialCarryLookAheadAdder_32.v:23]
+INFO: [Synth 8-6157] synthesizing module 'PartialCarryLookAheadAdder_16' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PartialCarryLookAheadAdder_16.v:22]
+INFO: [Synth 8-6157] synthesizing module 'ParallelAdder4' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ParallelAdder4.v:23]
+INFO: [Synth 8-6157] synthesizing module 'GU' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/GU.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'GU' (16#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/GU.v:2]
+INFO: [Synth 8-6157] synthesizing module 'PU' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PU.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PU' (17#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'CarryLookAhead_4' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/CarryLookAhead_4.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'CarryLookAhead_4' (18#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/CarryLookAhead_4.v:5]
+INFO: [Synth 8-6157] synthesizing module 'SUM' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SUM.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'SUM' (19#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/SUM.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ParallelAdder4' (20#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ParallelAdder4.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PartialCarryLookAheadAdder_16' (21#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PartialCarryLookAheadAdder_16.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'PartialCarryLookAheadAdder_32' (22#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/PartialCarryLookAheadAdder_32.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized1' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+	Parameter parameter_width bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized1' (22#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Minus' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Minus.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Minus' (23#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/Minus.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'FixedComplementAdder32' (24#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/FixedComplementAdder32.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (25#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'relationcheck' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/relationcheck.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'relationcheck' (26#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/relationcheck.v:23]
+INFO: [Synth 8-6157] synthesizing module 'EX_MEM' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/EX_MEM.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'EX_MEM' (27#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/EX_MEM.v:22]
+INFO: [Synth 8-6157] synthesizing module 'dm_4k' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/dm_4k.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'dm_4k' (28#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/dm_4k.v:22]
+INFO: [Synth 8-6157] synthesizing module 'MEM_WB' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/MEM_WB.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'MEM_WB' (29#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/MEM_WB.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (30#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/mips.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'top' (31#1) [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/top.v:23]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[31]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[30]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[29]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[28]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[27]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[26]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[25]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[24]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[23]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[22]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[21]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[20]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[19]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[18]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[17]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[16]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[15]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[1]
+WARNING: [Synth 8-3331] design im_4k has unconnected port addr[0]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[15]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[14]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[13]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[12]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[11]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[10]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[9]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[8]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[7]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[6]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[5]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[4]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[3]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[2]
+WARNING: [Synth 8-3331] design SevenSegDisp has unconnected port SW[1]
+WARNING: [Synth 8-3331] design top has unconnected port BTNC
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 436.559 ; gain = 164.703
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 436.559 ; gain = 164.703
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 436.559 ; gain = 164.703
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [G:/Vivado/pipeline_processor/CPU.srcs/constrs_1/new/N4.xdc]
+Finished Parsing XDC File [G:/Vivado/pipeline_processor/CPU.srcs/constrs_1/new/N4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [G:/Vivado/pipeline_processor/CPU.srcs/constrs_1/new/N4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 773.641 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 773.641 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 773.641 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 773.641 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 773.641 ; gain = 501.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 773.641 ; gain = 501.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 773.641 ; gain = 501.785
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "clk1000Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter1000" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk100Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter100" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk10Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter10" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk1Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "Jump" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemWrite" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RaDst" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ExDst" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Result" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "flag" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "ZF0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "ZF" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:62]
+INFO: [Synth 8-5546] ROM "s1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-327] inferring latch for variable 'rezero_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ctrl_top.v:123]
+WARNING: [Synth 8-327] inferring latch for variable 'Imm32_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/EXT.v:31]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUCtr_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALUControl.v:29]
+WARNING: [Synth 8-327] inferring latch for variable 'Result_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:46]
+WARNING: [Synth 8-327] inferring latch for variable 'ZF_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'Result_high_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:51]
+WARNING: [Synth 8-327] inferring latch for variable 'flag_reg' [G:/Vivado/pipeline_processor/CPU.srcs/sources_1/new/ALU.v:40]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 773.641 ; gain = 501.785
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 8     
+	   2 Input     30 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 64    
+	   4 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 24    
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 21    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 25    
+	1025 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 1     
+	  16 Input     32 Bit        Muxes := 1     
+	1025 Input     11 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 2     
+	  16 Input      4 Bit        Muxes := 1     
+	  19 Input      4 Bit        Muxes := 1     
+	  16 Input      2 Bit        Muxes := 1     
+	  19 Input      2 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 9     
+	   4 Input      1 Bit        Muxes := 2     
+	  11 Input      1 Bit        Muxes := 1     
+	  19 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module SevenSegDecoder 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      1 Bit        Muxes := 7     
+Module Counter8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module Decoder3_8 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      8 Bit        Muxes := 1     
+Module FrequencyDivider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 4     
+Module mux2 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module PC 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module im_4k 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 5     
++---Muxes : 
+	1025 Input     32 Bit        Muxes := 1     
+	1025 Input     11 Bit        Muxes := 1     
+Module IF_ID 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module ctrl_top 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      4 Bit        Muxes := 1     
+	  16 Input      2 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 9     
+Module mux2__parameterized0 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+Module RF 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module EXT 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module ID_EX 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 6     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+Module ALUControl 
+Detailed RTL Component Info : 
++---Muxes : 
+	  11 Input      1 Bit        Muxes := 1     
+Module PU 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
+Module SUM 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
+Module mux2__parameterized1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module FixedComplementAdder32 
+Detailed RTL Component Info : 
++---XORs : 
+	   4 Input      1 Bit         XORs := 1     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	  16 Input     32 Bit        Muxes := 1     
+	  19 Input      4 Bit        Muxes := 1     
+	  19 Input      2 Bit        Muxes := 1     
+	  19 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module relationcheck 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module EX_MEM 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
+Module MEM_WB 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
+Module mips 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     30 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "ZF0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+DSP Report: Generating DSP Result0, operation Mode is: A*B.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: Generating DSP Result0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: Generating DSP Result0, operation Mode is: A*B.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: Generating DSP Result0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+DSP Report: operator Result0 is absorbed into DSP Result0.
+INFO: [Synth 8-5546] ROM "U_CPU/U_relationcheck/s2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_CPU/U_relationcheck/s1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "U_FRQNCYDVD/counter1000" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_FRQNCYDVD/clk1000Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_FRQNCYDVD/counter10" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_FRQNCYDVD/clk10Hz" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-3917] design top has port SEG[7] driven by constant 1
+WARNING: [Synth 8-3331] design top has unconnected port SW[15]
+WARNING: [Synth 8-3331] design top has unconnected port SW[14]
+WARNING: [Synth 8-3331] design top has unconnected port SW[13]
+WARNING: [Synth 8-3331] design top has unconnected port SW[12]
+WARNING: [Synth 8-3331] design top has unconnected port SW[11]
+WARNING: [Synth 8-3331] design top has unconnected port SW[10]
+WARNING: [Synth 8-3331] design top has unconnected port SW[9]
+WARNING: [Synth 8-3331] design top has unconnected port SW[8]
+WARNING: [Synth 8-3331] design top has unconnected port SW[7]
+WARNING: [Synth 8-3331] design top has unconnected port SW[6]
+WARNING: [Synth 8-3331] design top has unconnected port SW[5]
+WARNING: [Synth 8-3331] design top has unconnected port SW[4]
+WARNING: [Synth 8-3331] design top has unconnected port SW[3]
+WARNING: [Synth 8-3331] design top has unconnected port SW[2]
+WARNING: [Synth 8-3331] design top has unconnected port SW[1]
+WARNING: [Synth 8-3331] design top has unconnected port BTNC
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_CPU/U_DM/dmem_reg to conserve power
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][8]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][8]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][8]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][8]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][8]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][9]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][9]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][9]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][9]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][9]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][10]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][10]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][10]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][10]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][10]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][6]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][6]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][6]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][6]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][6]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][7]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][7]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][7]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][7]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][7]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][14]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][14]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][14]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][14]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][14]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][15]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][15]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][15]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][15]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][15]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][11]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][11]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][11]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][11]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][11]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][12]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][12]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][12]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][12]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][12]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][13]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][13]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][13]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][13]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][13]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][3]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][3]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][3]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][3]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][3]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][0]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][0]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][0]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][0]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][0]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][1]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][1]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][1]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][1]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][1]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][2]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][2]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][2]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][2]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][2]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][5]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][5]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][5]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][5]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][5]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][4]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][4]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][4]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][4]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][4]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][19]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][19]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][19]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][19]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][19]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][20]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][20]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][20]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][20]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][20]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][16]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][16]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][16]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][16]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][16]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3072][17]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3073][17]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3074][17]' (FD) to 'U_CPU/U_IM/imem_reg[3073][27]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3075][17]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Synth 8-3886] merging instance 'U_CPU/U_IM/imem_reg[3076][17]' (FD) to 'U_CPU/U_IM/imem_reg[3073][31]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/U_IM/imem_reg[3075][23] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_CPU/U_IM/imem_reg[3076][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/U_ID_EX/Branch_addr_EX_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/U_EXT/Imm32_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/U_ID_EX/Jump_addr_EX_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/alucontrol/ALUCtr_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_CPU/U_ALU /\Result_high_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[31]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/alucontrol/ALUCtr_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (Result_high_reg[0]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (i_0) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[27]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[19]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[18]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[17]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[16]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (U_CPU/U_EXT/Imm32_reg[0]) is unused and will be removed from module top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:28 . Memory (MB): peak = 773.641 ; gain = 501.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+-------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives    | 
++------------+-------------------+-----------+----------------------+---------------+
+|top         | U_CPU/U_RF/rf_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+-------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ALU         | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 47     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:34 . Memory (MB): peak = 786.910 ; gain = 515.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:34 . Memory (MB): peak = 788.148 ; gain = 516.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping  Report
++------------+-------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives    | 
++------------+-------------------+-----------+----------------------+---------------+
+|top         | U_CPU/U_RF/rf_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+-------------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     3|
+|2     |CARRY4 |    40|
+|3     |LUT1   |     3|
+|4     |LUT2   |   148|
+|5     |LUT3   |   152|
+|6     |LUT4   |    67|
+|7     |LUT5   |   255|
+|8     |LUT6   |   390|
+|9     |MUXF7  |    28|
+|10    |RAM32M |    12|
+|11    |FDCE   |   347|
+|12    |FDRE   |    96|
+|13    |FDSE   |     2|
+|14    |LD     |    40|
+|15    |IBUF   |     2|
+|16    |OBUF   |    16|
++------+-------+------+
+
+Report Instance Areas: 
++------+----------------------+-----------------+------+
+|      |Instance              |Module           |Cells |
++------+----------------------+-----------------+------+
+|1     |top                   |                 |  1601|
+|2     |  U_CPU               |mips             |  1461|
+|3     |    U_MUX2_ALUsrc     |mux2             |    32|
+|4     |    U_MUX2_ExDst      |mux2_0           |    11|
+|5     |    U_ALU             |ALU              |    63|
+|6     |    U_CTRL            |ctrl_top         |     2|
+|7     |    U_EX_MEM          |EX_MEM           |    71|
+|8     |    U_ID_EX           |ID_EX            |   817|
+|9     |    U_IF_ID           |IF_ID            |   230|
+|10    |    U_MEM_WB          |MEM_WB           |    69|
+|11    |    U_MUX2_RaDst_Data |mux2_1           |    32|
+|12    |    U_PC              |PC               |    71|
+|13    |    U_RF              |RF               |    12|
+|14    |    alucontrol        |ALUControl       |    35|
+|15    |  U_DISP              |SevenSegDisp     |    14|
+|16    |    U_CNT             |Counter8         |    14|
+|17    |  U_FRQNCYDVD         |FrequencyDivider |   104|
++------+----------------------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 38 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 828.594 ; gain = 219.656
+Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 828.594 ; gain = 556.738
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 120 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 12 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 828.594 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 52 instances were transformed.
+  LD => LDCE: 40 instances
+  RAM32M => RAM32M (inverted pins: WCLK) (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+218 Infos, 173 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:37 . Memory (MB): peak = 828.594 ; gain = 569.930
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 828.594 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'G:/Vivado/pipeline_processor/CPU.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue May 28 00:03:02 2024...

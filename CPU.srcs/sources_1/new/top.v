@@ -37,7 +37,7 @@ module top(
      //补充部分代码，连接CPU
      wire [31:0] PC;
      assign data =  PC[31:0];
-     //mips U_CPU( clk10Hz, SW[0], PC) ;//clk,rst,PC,IR
+     mips U_CPU( clk10Hz, SW[0], PC) ;//clk,rst,PC,IR
      
        
 endmodule

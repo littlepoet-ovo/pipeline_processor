@@ -22,7 +22,8 @@
 
 module mips_tb();
    reg clk, rst;
-   mips u0(clk,rst);
+   wire [31:0] PC;
+   mips u0(clk,rst,PC);
    always #(5) clk = ~clk; 
    initial begin
      clk = 1 ;

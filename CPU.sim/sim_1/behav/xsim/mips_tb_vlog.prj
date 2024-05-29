@@ -21,9 +21,11 @@ verilog xil_defaultlib  \
 "../../../../CPU.srcs/sources_1/new/ctrl_top.v" \
 "../../../../CPU.srcs/sources_1/new/dm_4k.v" \
 "../../../../CPU.srcs/sources_1/new/im_4k.v" \
+"../../../../CPU.srcs/sources_1/new/load_use_check.v" \
 "../../../../CPU.srcs/sources_1/new/mips.v" \
 "../../../../CPU.srcs/sources_1/new/mux2.v" \
-"../../../../CPU.srcs/sources_1/new/relationcheck.v" \
+"../../../../CPU.srcs/sources_1/new/mux3.v" \
+"../../../../CPU.srcs/sources_1/new/relation_check.v" \
 "../../../../CPU.srcs/sim_1/new/mips_tb.v" \
 
 # compile glbl module

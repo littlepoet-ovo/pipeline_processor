@@ -30,7 +30,7 @@ module EX_MEM(clk,rst,
     output reg MemtoReg_MEM,MemWr_MEM,RegWr_MEM,RaDst_MEM;
     output reg[31:0] result_MEM,Db_MEM,PCplus1_MEM;
     output reg [4:0] Rw_MEM;
-    always @(posedge clk or rst)
+    always @(posedge clk or posedge rst)
            begin
               if (rst==1)
                   begin             

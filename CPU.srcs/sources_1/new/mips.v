@@ -20,16 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mips( clk, rst);
+module mips( clk, rst,PC);
    input	clk;
-   input	rst;  
+   input	rst; 
+   output [31:0] PC; 
    wire [5:0]  op;
    wire [5:0]  func,func_EX;
-   wire [31:0] PC, NPC_t,NPC;
+   wire [31:0] NPC_t,NPC;
    wire [15:0] imm16; 
    wire [25:0] imm26;
    wire [4:0]  imm5,imm5_EX;
-   wire [4:0]  rs,rt,rd;
+   wire [4:0]  rs,rt,rd,rt_EX,rs_EX;
    wire [31:0] Din_WB_t,Din_WB;//送入RF数据端口的值
    wire rezero_EX,RaDst_EX;
    
@@ -57,7 +58,8 @@ module mips( clk, rst);
    wire [4:0] Rw_EX;
    wire [29:0] sign29;
    wire [31:0] PCplus1_EX;
-   
+   wire[1:0] ALU_SrcA,ALU_SrcB;//转发控制信号
+   wire [31:0] ALU_A_mux3out,ALU_B_mux3out;
    //EX/MEM
    wire [31:0] ALU_B;
    wire	  Branch,Zero,RaDst_MEM,Zero_t;
@@ -81,7 +83,7 @@ module mips( clk, rst);
    
    im_4k U_IM (rst,PC , im_dout_IF);//指令寄存器
    
-   assign PC31_28_IF=PC[29:26];
+   assign PC31_28_IF=PC[31:28];//[31:28]
    
    //流水段IF_ID
    IF_ID U_IF_ID(clk,rst,stall,Jump_stall,PC31_28_IF,im_dout_IF,PCplus1_IF,
@@ -96,7 +98,7 @@ module mips( clk, rst);
    assign imm26 = im_dout_ID[25:0];
    assign imm5=im_dout_ID[10:6];
    
-   
+   load_use_check U_load_use_check(op,MemtoReg_EX,rs,rt,rt_EX,stall);
    ctrl_top U_CTRL (op,func,
        Jump_ID, MemtoReg_ID,
        Beq_ID, MemWr_ID, ALUctr_ID,
@@ -121,29 +123,35 @@ module mips( clk, rst);
                Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID,ALUsrc_ID,
                RegWr_ID,ALUctr_ID,
                R1_ID,R2_ID,Rw_ID,
-               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,//id输入
+               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,rt,rs,//id输入
                Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX, ALUsrc_EX,
                RegWr_EX,ALUctr_EX,
                R1_EX,R2_EX,Rw_EX,
-               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX    //ex输出
+               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX,rt_EX,rs_EX    //ex输出
                );
      
    mux2 #(32) U_MUX2_ALUsrc (R2_EX,Ext_imm32_EX, ALUsrc_EX, ALU_B);//设计图中多路选择器好像画反了
-    ALUControl alucontrol(ALUctr_EX,func_EX,ALUctr_True);
-    //ALU(A,B,ALUctrl,shamt,Result,ZF);
-   ALU U_ALU (R1_EX,ALU_B,ALUctr_True,imm5_EX,result_EX_t, Zero_t);//ALU
+   
+   mux3 #(32) U_MUX3_ALU_SrcA(R1_EX,Din_WB,result_MEM, ALU_SrcA,ALU_A_mux3out);
+   mux3 #(32) U_MUX3_ALU_SrcB(ALU_B, Din_WB,result_MEM,ALU_SrcB,ALU_B_mux3out);
+   
+   ALUControl alucontrol(ALUctr_EX,func_EX,ALUctr_True);
+   ALU U_ALU (ALU_A_mux3out,ALU_B_mux3out,ALUctr_True,imm5_EX,result_EX_t, Zero_t);//ALU
    mux2 #(32) U_MUX2_ExDst(result_EX_t,Ext_imm32_EX,ExDst_EX,result_EX);
+   
    assign Zero = rezero_EX?~Zero_t:Zero_t;
    assign Branch=Zero & Beq_EX;
    assign Jump_stall=Branch || Jump_EX;
    // op,Rw_EX,Rw_MEM,RegWr_EX,RegWr_MEM,rs,rt,stall
-   relationcheck U_relationcheck(op,Rw_EX,Rw_MEM,RegWr_EX,RegWr_MEM,rs,rt,stall);
+//   relationcheck U_relationcheck(op,Rw_EX,Rw_MEM,RegWr_EX,RegWr_MEM,rs,rt,stall);
    
    //流水段EX_MEM
    EX_MEM  U_EX_MEM(clk,rst,
       MemtoReg_EX,MemWr_EX,RegWr_EX,result_EX, R2_EX,Rw_EX,RaDst_EX,PCplus1_EX,//选择信号，写主存信号，写寄存器信号，ALU计算结果（主存地址），RF的bus2结果（要写入主存内容），寄存器写信号
       MemtoReg_MEM,MemWr_MEM,RegWr_MEM,result_MEM,R2_MEM,Rw_MEM,RaDst_MEM,PCplus1_MEM
    ); 
+        relation_check U_relation_check(rs_EX,rt_EX,RegWr_MEM,RegWr_WB,Rw_MEM,Rw_WB,ALU_SrcA,ALU_SrcB); 
+   
    // module dm_4k( addr, din, MemWr, clk, dout );
    dm_4k U_DM (result_MEM[11:2], R2_MEM, MemWr_MEM, clk, dm_dout_MEM);//数据存储器
    

@@ -30,7 +30,7 @@ module MEM_WB(clk,rst,
     output reg MemtoReg_WB,RegWr_WB,RaDst_WB;
     output reg[31:0] result_WB,dm_dout_WB,PCplus1_WB;
     output reg [4:0] Rw_WB;
-    always @(posedge clk or rst)
+    always @(posedge clk or posedge rst)
            begin
               if (rst==1)
                   begin              

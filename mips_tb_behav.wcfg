@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1161138782fs"></ZoomStartTime>
-      <ZoomEndTime time="1447772244fs"></ZoomEndTime>
-      <Cursor1Time time="1400000000fs"></Cursor1Time>
+      <ZoomStartTime time="33333333fs"></ZoomStartTime>
+      <ZoomEndTime time="233333334fs"></ZoomEndTime>
+      <Cursor1Time time="200000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="206"></NameColumnWidth>
-      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+      <NameColumnWidth column_width="335"></NameColumnWidth>
+      <ValueColumnWidth column_width="181"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/mips_tb/clk" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">clk</obj_property>
@@ -40,9 +40,72 @@
       <obj_property name="ElementShortName">im_dout_IF[31:0]</obj_property>
       <obj_property name="ObjectShortName">im_dout_IF[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mips_tb/u0/U_RF/rf" type="array">
-      <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[2]" type="array">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[3]" type="array">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[4]" type="array">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[5]" type="array">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[6]" type="array">
+      <obj_property name="ElementShortName">[6][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[7]" type="array">
+      <obj_property name="ElementShortName">[7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[8]" type="array">
+      <obj_property name="ElementShortName">[8][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_RF/rf[9]" type="array">
+      <obj_property name="ElementShortName">[9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_ALU/A" type="array">
+      <obj_property name="ElementShortName">A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_ALU/B" type="array">
+      <obj_property name="ElementShortName">B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_ALU/ALUctrl" type="array">
+      <obj_property name="ElementShortName">ALUctrl[5:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUctrl[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_ALU/Result" type="array">
+      <obj_property name="ElementShortName">Result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_relation_check/C1_A" type="logic">
+      <obj_property name="ElementShortName">C1_A</obj_property>
+      <obj_property name="ObjectShortName">C1_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_relation_check/C1_B" type="logic">
+      <obj_property name="ElementShortName">C1_B</obj_property>
+      <obj_property name="ObjectShortName">C1_B</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_relation_check/C2_A" type="logic">
+      <obj_property name="ElementShortName">C2_A</obj_property>
+      <obj_property name="ObjectShortName">C2_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tb/u0/U_relation_check/C2_B" type="logic">
+      <obj_property name="ElementShortName">C2_B</obj_property>
+      <obj_property name="ObjectShortName">C2_B</obj_property>
    </wvobject>
 </wave_config>

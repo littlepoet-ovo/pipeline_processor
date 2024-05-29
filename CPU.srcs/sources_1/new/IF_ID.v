@@ -29,7 +29,7 @@ module IF_ID(clk,rst,stall,jump_stall,PC31_28_IF,im_dout_IF,PCplus1_IF,
    output reg[3:0] PC31_28_ID;//PC前四位
    output reg [31:0] PCplus1_ID;//pc+4的值
    output reg[31:0] im_dout_ID;////指令的值
-   always @(posedge clk or rst)
+   always @(posedge clk or posedge rst)
       begin
          if (rst||jump_stall)
              begin
