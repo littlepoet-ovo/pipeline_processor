@@ -31,6 +31,7 @@ Compiling module xil_defaultlib.FixedComplementAdder32
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.EX_MEM
 Compiling module xil_defaultlib.relation_check
+Compiling module xil_defaultlib.relation_check_mem
 Compiling module xil_defaultlib.dm_4k
 Compiling module xil_defaultlib.MEM_WB
 Compiling module xil_defaultlib.mips

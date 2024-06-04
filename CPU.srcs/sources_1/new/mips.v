@@ -24,13 +24,13 @@ module mips( clk, rst,PC);
    input	clk;
    input	rst; 
    output [31:0] PC; 
-   wire [5:0]  op;
+   wire [5:0]  op,op_EX;
    wire [5:0]  func,func_EX;
    wire [31:0] NPC_t,NPC;
    wire [15:0] imm16; 
    wire [25:0] imm26;
    wire [4:0]  imm5,imm5_EX;
-   wire [4:0]  rs,rt,rd,rt_EX,rs_EX;
+   wire [4:0]  rs,rt,rd,rt_EX,rs_EX,rt_MEM;
    wire [31:0] Din_WB_t,Din_WB;//送入RF数据端口的值
    wire rezero_EX,RaDst_EX;
    
@@ -65,7 +65,7 @@ module mips( clk, rst,PC);
    wire	  Branch,Zero,RaDst_MEM,Zero_t;
    wire[31:0] result_EX_t,result_EX;
    wire  MemtoReg_MEM,MemWr_MEM,RegWr_MEM;
-   wire[31:0] result_MEM,R2_MEM;
+   wire[31:0] result_MEM,R2_MEM,DinMuxOut;
    wire [4:0] Rw_MEM;
    wire [31:0] PCplus1_MEM;
    //MEM/WB
@@ -73,7 +73,8 @@ module mips( clk, rst,PC);
    wire MemtoReg_WB,MemWr_WB,RegWr_WB,RaDst_WB;
    wire[31:0] result_WB,dm_dout_WB,PCplus1_WB;
    wire [4:0] Rw_WB;
-
+   wire Src;
+   
    mux2 #(32) U_Branch (PCplus1_IF, Branch_addr_EX, Branch, Branch_addr);
    mux2 #(32) U_Jump (Branch_addr,Jump_addr_EX,Jump_EX,NPC_t);
    mux2 #(32) U_Jr(NPC_t,R1_EX,JrDst_EX,NPC);
@@ -123,11 +124,11 @@ module mips( clk, rst,PC);
                Jump_ID, MemtoReg_ID, Beq_ID, MemWr_ID,ALUsrc_ID,
                RegWr_ID,ALUctr_ID,
                R1_ID,R2_ID,Rw_ID,
-               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,rt,rs,//id输入
+               Ext_imm32_ID,Jump_addr_ID,Branch_addr_ID,func,imm5,rezero_ID,RaDst_ID,PCplus1_ID,JrDst_ID,ExDst_ID,rt,rs,op,//id输入
                Jump_EX, MemtoReg_EX, Beq_EX, MemWr_EX, ALUsrc_EX,
                RegWr_EX,ALUctr_EX,
                R1_EX,R2_EX,Rw_EX,
-               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX,rt_EX,rs_EX    //ex输出
+               Ext_imm32_EX,Jump_addr_EX,Branch_addr_EX,func_EX,imm5_EX,rezero_EX,RaDst_EX,PCplus1_EX,JrDst_EX,ExDst_EX,rt_EX,rs_EX,op_EX    //ex输出
                );
      
    mux2 #(32) U_MUX2_ALUsrc (R2_EX,Ext_imm32_EX, ALUsrc_EX, ALU_B);//设计图中多路选择器好像画反了
@@ -147,13 +148,14 @@ module mips( clk, rst,PC);
    
    //流水段EX_MEM
    EX_MEM  U_EX_MEM(clk,rst,
-      MemtoReg_EX,MemWr_EX,RegWr_EX,result_EX, R2_EX,Rw_EX,RaDst_EX,PCplus1_EX,//选择信号，写主存信号，写寄存器信号，ALU计算结果（主存地址），RF的bus2结果（要写入主存内容），寄存器写信号
-      MemtoReg_MEM,MemWr_MEM,RegWr_MEM,result_MEM,R2_MEM,Rw_MEM,RaDst_MEM,PCplus1_MEM
+      MemtoReg_EX,MemWr_EX,RegWr_EX,result_EX, R2_EX,Rw_EX,RaDst_EX,PCplus1_EX,rt_EX,//选择信号，写主存信号，写寄存器信号，ALU计算结果（主存地址），RF的bus2结果（要写入主存内容），寄存器写信号
+      MemtoReg_MEM,MemWr_MEM,RegWr_MEM,result_MEM,R2_MEM,Rw_MEM,RaDst_MEM,PCplus1_MEM,rt_MEM
    ); 
-        relation_check U_relation_check(rs_EX,rt_EX,RegWr_MEM,RegWr_WB,Rw_MEM,Rw_WB,ALU_SrcA,ALU_SrcB); 
-   
-   // module dm_4k( addr, din, MemWr, clk, dout );
-   dm_4k U_DM (result_MEM[11:2], R2_MEM, MemWr_MEM, clk, dm_dout_MEM);//数据存储器
+        relation_check U_relation_check(op_EX,rs_EX,rt_EX,RegWr_MEM,RegWr_WB,Rw_MEM,Rw_WB,ALU_SrcA,ALU_SrcB); 
+        relation_check_mem U_relation_check_mem(rt_MEM,Rw_WB,RegWr_WB,Src);
+        mux2 M_MUX2_SRC(R2_MEM,Din_WB,Src,DinMuxOut);
+   dm_4k U_DM (result_MEM[11:2], DinMuxOut, MemWr_MEM, clk, dm_dout_MEM);//数据存储器
+   //dm_4k U_DM (result_MEM[11:2], R2_MEM, MemWr_MEM, clk, dm_dout_MEM);//数据存储器
    
     //流水段MEM_WB
    MEM_WB U_MEM_WB(clk,rst,
